@@ -19,7 +19,7 @@ const Form = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/user/getall');
+            const response = await axios.get('https://backend-seven-navy-43.vercel.app/user/getall');
             console.log(response.data);
             setUsers(response.data);
         } catch (error) {
@@ -34,7 +34,7 @@ const Form = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/user/register', formData);
+            const response = await axios.post('https://backend-seven-navy-43.vercel.app/user/register', formData);
             
             setFormData({
                 name: '',
@@ -50,7 +50,7 @@ const Form = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/user/${id}`);
+            await axios.delete(`https://backend-seven-navy-43.vercel.app/user/${id}`);
             fetchUsers();
         } catch (error) {
             console.error(error);
@@ -69,7 +69,7 @@ const Form = () => {
     const updateUser = async () => {
         if (!updateId) return;
         try {
-            await axios.put(`http://localhost:5000/user/${updateId}`, {
+            await axios.put(`https://backend-seven-navy-43.vercel.app/user/${updateId}`, {
                 name: updateName,
                 email: updateEmail
             });
